@@ -1,0 +1,202 @@
+body {
+	font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.top-bar-section {
+	background-color: #222222;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) > .nav-tab:hover {
+	border-bottom: #3fbf79 solid 3px;
+	line-height: 42px;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) > .logo-text {
+	padding: 0 50px;
+	border-bottom: #3fbf79 solid 3px;
+	line-height: 42px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.header {
+	background-color: #074e68;
+	padding-top: 45px;
+	width: 100%;
+	height: 400px;
+	color: #FFFFFF;
+}
+
+.page-wrap {
+	height: 100%;
+	margin-bottom: -100px;
+	min-height: 100%;
+	position: relative;
+}
+
+footer {
+	width: 100%;
+	height: 100px;
+	padding-top: 25px;
+	font-size: 13px;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 120%;
+	background-color: #222222;
+	color: #FFFFFF;
+	font-family: 'Ubuntu', 'Roboto', 'Open Sans', sans-serif;
+	margin-top: 50px;
+	clear: both;
+}
+
+.banner {
+	background-color: #085a78;
+	width: 100%;
+	height: 100px;
+	color: #FFFFFF;
+	padding: 20px 0;
+}
+
+.content-box {
+	color: #222222;
+	width: 100%;
+}
+
+.banner h1,
+.banner h2,
+.banner h3,
+.banner h4,
+.homepage > h1,
+.homepage > h2,
+.homepage > h3,
+.homepage > h4,
+.homepage > h5 {
+	color: #FFFFFF;
+	font-family: 'Montserrat', 'Ubuntu', 'Open Sans', sans-serif;
+}
+
+.homepage > h1 {
+	font-size: 45px;
+}
+
+.homepage > h4 {
+	line-height: 25px;
+}
+
+/* Decoration for homepage */
+.banner#home {
+	height: 75px;
+}
+
+/* Decoration for homepage skills*/
+.skills-row {
+	width: 100%;
+	background-color: transparent;
+	border-top: #FFFFFF dashed 3px;
+	border-bottom: #FFFFFF dashed 3px;	
+	padding: 20px 0;
+}
+
+.skills-row .sub {
+	line-height: 14px;
+	font-size: 12px;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+.skills-row > .box1,
+.skills-row > .box2,
+.skills-row > .box3,
+.skills-row > .box4,
+.skills-row > .box5,
+.skills-row > .box6,
+.skills-row > .box7,
+.skills-row > .box8 {
+	font-family: 'Ubuntu', 'Montserrat', 'Ubuntu', sans-serif;
+	padding: 15px 20px;
+	line-height: 25px;
+	width: 12.5%;
+	display: inline-block;
+	margin: 0 -2px;
+}
+
+/* BLUE */
+.skills-row > .box1 {
+	background-color: #3b8bba;
+}
+/* PURPLE */
+.skills-row > .box2 {
+	background-color: rgb(128, 88, 165);
+}
+/* GREEN */
+.skills-row > .box3 {
+	background-color: #5eb95e;
+}
+/* RED */
+.skills-row > .box4 {
+	background-color: #dd514c;
+}
+/* ORANGE */
+.skills-row > .box5 {
+	background-color: rgb(243, 123, 29);
+}
+
+/* YELLOW */
+.skills-row > .box6 {
+	background-color: rgb(250, 210, 50);
+}
+
+.skills-row > .box7 {
+	background-color: #3b8bba;
+}
+
+.skills-row > .box8 {
+	background-color: #085a78;
+}
+
+.skills-row > .box1:hover,
+.skills-row > .box2:hover,
+.skills-row > .box3:hover,
+.skills-row > .box4:hover,
+.skills-row > .box5:hover,
+.skills-row > .box6:hover,
+.skills-row > .box7:hover,
+.skills-row > .box8:hover {
+	opacity: 0.7;
+	-o-transition:.2s;
+	-ms-transition:.2s;
+	-moz-transition:.2s;
+	-webkit-transition:.2s;
+	transition:.2s;
+	cursor: pointer;
+}
+
+/* Icon Styling */
+i {
+	padding: 5px;
+}
+.tin-ico {
+	font-size: 40px;
+}
+.sm-ico {
+	font-size: 50px;
+}
+.med-ico {
+	font-size: 70px;
+}
+.la-ico {
+	font-size: 110px;
+}
+.blue-ico {
+	color: #074e68;;
+}
+a i.white-ico {
+	color: #FFFFFF;
+}
+a i.white-ico:hover {
+	color: #008cba;
+}
+
+.ico-header {
+	left: 50%;
+	display: inline-block;
+}
