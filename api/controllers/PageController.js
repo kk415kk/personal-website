@@ -25,13 +25,6 @@ module.exports = {
    * (specific to PageController)
    */
   //_config: {}
-
-  resume: function(req, res) {
-  	res.view({
-  		title: 'Resume'
-  	})
-  },
-
   contact: function(req, res) {
   	res.view({
   		title: 'Contact'

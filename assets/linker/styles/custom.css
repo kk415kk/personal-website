@@ -6,6 +6,11 @@ body {
 	background-color: #222222;
 }
 
+.top-bar-section li:not(.has-form) a:not(.button) .active {
+	border-bottom: #3fbf79 solid 3px;
+	line-height: 42px;
+}
+
 .top-bar-section li:not(.has-form) a:not(.button) > .nav-tab:hover {
 	border-bottom: #3fbf79 solid 3px;
 	line-height: 42px;
@@ -19,7 +24,8 @@ body {
 	font-size: 14px;
 }
 
-.header {
+.header,
+.header-full {
 	background-color: #074e68;
 	padding-top: 45px;
 	width: 100%;
@@ -27,16 +33,22 @@ body {
 	color: #FFFFFF;
 }
 
+.spacer {
+	height: 10px;
+	background-color: transparent;
+}
+
 .page-wrap {
 	height: 100%;
 	margin-bottom: -100px;
 	min-height: 100%;
 	position: relative;
+	padding-bottom: 15px;
 }
 
 footer {
 	width: 100%;
-	height: 100px;
+	height: 90px;
 	padding-top: 25px;
 	font-size: 13px;
 	font-family: 'Open Sans', sans-serif;
@@ -44,7 +56,6 @@ footer {
 	background-color: #222222;
 	color: #FFFFFF;
 	font-family: 'Ubuntu', 'Roboto', 'Open Sans', sans-serif;
-	margin-top: 50px;
 	clear: both;
 }
 
@@ -61,10 +72,15 @@ footer {
 	width: 100%;
 }
 
+.nav-filler {
+	width: 30px;
+}
+
 .banner h1,
 .banner h2,
 .banner h3,
 .banner h4,
+.header-full h1,
 .homepage > h1,
 .homepage > h2,
 .homepage > h3,
@@ -83,7 +99,7 @@ footer {
 }
 
 /* Decoration for homepage */
-.banner#home {
+.banner#home-banner {
 	height: 75px;
 }
 
@@ -197,6 +213,6 @@ a i.white-ico:hover {
 }
 
 .ico-header {
-	left: 50%;
 	display: inline-block;
+	padding-top: 15px;
 }

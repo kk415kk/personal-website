@@ -5,7 +5,6 @@
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     
     <!--  
         Stylesheets and Preprocessors
@@ -47,17 +46,24 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <li class="divider"></li>
-            <li class=""><a href="/resume"><div class="nav-tab">Resume</div></a></li>
-            <li class="divider"></li>
-            <li class=""><a href="/contact"><div class="nav-tab">Contact</div></a></li>
-            <li class="divider"></li>
 
             <li class="has-dropdown">
               <a href="#">Projects</a>
               <ul class="dropdown">
-                <li><a href="#">First link in dropdown</a></li>
+                <li><a href="#">Web Applications</a></li>
+                <li><a href="#">Security</a></li>
+                <li><a href="#">Data</a></li>
+                <li><a href="#">Other</a></li>
               </ul>
             </li>
+
+            <li class="divider"></li>
+            <li><a href="/files/resume.pdf" target="_blank"><div class="nav-tab">Resume</div></a></li>
+            <li class="divider"></li>
+            <li><a href="/contact"><div class="nav-tab" id="contact">Contact</div></a></li>
+            <li class="divider"></li>
+            <li class="nav-filler"></li>
+            <li class="nav-filler"></li>
           </ul>
 
           <!-- Left Nav Section -->
@@ -82,13 +88,15 @@
       <%- body %>
     </div>
 
+    <div class="spacer">
+    </div>
     <!-- Footer -->
     <footer>
       <div class="row">
         <div class="left">
           © 2014 Kevin Kao.<br>
-          Built with <a href="http://nodejs.org/">Node.js</a>, 
-          <a href="http://sailsjs.org">Sails.js</a>, and a little bit of motivation.
+          Built with <a href="http://nodejs.org/" target="_blank">Node.js</a>, 
+          <a href="http://sailsjs.org" target="_blank">Sails.js</a>, and a little bit of motivation.
         </div>
         <div class="right">
           <a href="https://github.com/kk415kk" target="_blank"><i class="fi-social-github tin-ico"></i></a>
@@ -149,6 +157,7 @@
     <script src="/linker/js/socket.io.js"></script>
     <script src="/linker/js/sails.io.js"></script>
     <script src="/linker/js/app.js"></script>
+    <script src="/linker/js/vendor/jquery.js"></script>
     <script src="/linker/js/foundation.min.js"></script>
     <script src="/linker/js/foundation/foundation.abide.js"></script>
     <script src="/linker/js/foundation/foundation.accordion.js"></script>
@@ -169,9 +178,25 @@
     <script src="/linker/js/foundation/foundation.topbar.js"></script>
     <script src="/linker/js/vendor/fastclick.js"></script>
     <script src="/linker/js/vendor/jquery.cookie.js"></script>
-    <script src="/linker/js/vendor/jquery.js"></script>
     <script src="/linker/js/vendor/modernizr.js"></script>
     <script src="/linker/js/vendor/placeholder.js"></script>
     <!--SCRIPTS END-->
+
+    <script>
+      $(document).foundation();
+    </script>
+
+    <!-- Assigning active tabs -->
+    <script>
+      // Assigning active tab
+      $(document).ready(function(){
+        var title = '<%- title %>';
+        var nav = document.getElementById(title.toLowerCase());
+        if (nav) {
+          nav.className = nav.className + ' active';
+        }
+      });
+    </script>
+
   </body>
 </html>
