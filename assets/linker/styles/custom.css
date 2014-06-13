@@ -42,8 +42,6 @@ body {
 	height: 100%;
 	margin-bottom: -100px;
 	min-height: 100%;
-	position: relative;
-	padding-bottom: 15px;
 }
 
 footer {
