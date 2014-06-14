@@ -96,6 +96,16 @@ footer {
 	line-height: 25px;
 }
 
+.sm-text {
+	font-size: 12px;
+	font-family: 'Ubuntu', 'Roboto', sans-serif;
+}
+
+.transparent {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
 /* Decoration for homepage */
 .banner#home-banner {
 	height: 75px;

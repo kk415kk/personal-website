@@ -39,10 +39,6 @@ module.exports.routes = {
   '/contact': {
     controller: 'PageController',
     action: 'contact'
-  },
-  '/resume': {
-    controller: 'PageController',
-    action: 'resume'
   }
 
   /*
