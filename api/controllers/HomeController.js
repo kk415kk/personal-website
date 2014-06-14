@@ -24,9 +24,36 @@ module.exports = {
   //_config: {}
 
   index: function(req, res) {
-  	res.view({
-  		title: 'Home'
-  	});
+    var request = require('request');
+    var options = {
+        uri: 'https://api.github.com/repos/kk415kk/personal-website/commits',
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'User-Agent': 'kk415kk'
+        }
+    };
+
+    var github_info = null;
+
+    request.get(options, function(err, response, body) {
+      if (err) {
+        github_info = "error while retrieving Github information";
+      } else {
+        body = JSON.parse(body)[0];
+        github_info = {
+          sha: body["sha"],
+          url: body["url"],
+          date: body["commit"]["committer"]["date"],
+          message: body["commit"]["message"]
+        };
+      }
+
+      res.view({
+        title: 'Home',
+        github: github_info
+      });
+    });
   }
   
 };
