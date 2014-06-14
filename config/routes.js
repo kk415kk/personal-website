@@ -39,7 +39,8 @@ module.exports.routes = {
   '/contact': {
     controller: 'PageController',
     action: 'contact'
-  },
+  }
+>>>>>>> f81cc90a207a18f7613de0f41f9f532ab2cf6899
 
   /*
   // But what if you want your home page to display
