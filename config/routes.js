@@ -40,10 +40,6 @@ module.exports.routes = {
     controller: 'PageController',
     action: 'contact'
   },
-  '/resume': {
-    controller: 'PageController',
-    action: 'resume'
-  }
 
   /*
   // But what if you want your home page to display
