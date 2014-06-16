@@ -28,13 +28,14 @@ module.exports = {
     var options = {
         uri: 'https://api.github.com/repos/kk415kk/personal-website/commits',
         method: 'GET',
+        timeout: '2000',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'User-Agent': 'kk415kk'
         }
     };
 
-    var github_info = null;
+    var github_info = {};
 
     request.get(options, function(err, response, body) {
       if (err) {
@@ -43,7 +44,7 @@ module.exports = {
         body = JSON.parse(body)[0];
         github_info = {
           sha: body["sha"],
-          url: body["url"],
+          url: body["html_url"],
           date: body["commit"]["committer"]["date"],
           message: body["commit"]["message"]
         };
