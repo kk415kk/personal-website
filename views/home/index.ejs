@@ -1,15 +1,22 @@
 <div class="header">
 	<div class="row">
-		<div class="homepage">
-			<h1>Hi, I'm Kevin Kao.</h1>
-			<h4>Software Engineer. EECS major at UC Berkeley.</h4>
-			<h5>Thinker. Designer.</h5>
+		<div class="large-7 columns">
+			<div class="homepage">
+				<h1>Hi, I'm Kevin Kao.</h1>
+				<h4>Software Engineer. EECS major at UC Berkeley.</h4>
+				<h5>Thinker. Designer.</h5>
+			</div>
+		</div>
+		<div class="large-5 columns about-wrapper">
+			<p id="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
 	</div>
 	<div class="row">
-		<a href="/" class="button">Projects</a>
-		<a href="/" class="button">Resume</a>
-		<a href="/" class="button">Blog</a>
+		<div class="large-12 columns">
+			<a href="/" class="button">Projects</a>
+			<a href="/" class="button">Resume</a>
+			<a href="/" class="button">Blog</a>
+		</div>
 	</div>
 	<br>
 	<br>
@@ -28,9 +35,11 @@
 
 <div class="banner" id="home-banner">
 	<div class="row">
-		<h4>Projects</h4>
-		<font class="sm-text">Latest Update on Github: <b><%=github.date%></b> | Commit
-		<a href="<%=github.url%>"><%=github.sha%></a></font>
+		<div class="large-12 columns">
+			<h4>Projects</h4>
+			<font class="sm-text">Latest Update on Github: <b><%=github.date%></b> | Commit
+			<a href="<%=github.url%>"><%=github.sha%></a></font>
+		</div>
 	</div>
 </div>
 
@@ -48,7 +57,7 @@
 			<i class="fi-pencil la-ico"></i>
 		</div>
 		<br>
-		<p>Written several large-scale projects both in team settings and individually, from MapReduce data processing algorithm to Pacman AI agents and relational databases.</p>
+		<p>Written several large-scale projects both in team settings and individually, from MapReduce data processing algorithms to Pacman AI agents and relational databases.</p>
 	</div>
 	<div class="large-4 columns">
 		<div class="ico-header">
