@@ -1,5 +1,5 @@
 /**
- * PageController
+ * BlogController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -22,19 +22,31 @@ module.exports = {
 
   /**
    * Overrides for the settings in `config/controllers.js`
-   * (specific to PageController)
+   * (specific to BlogController)
    */
   //_config: {}
-  contact: function(req, res) {
-  	res.view({
-  		title: 'Contact'
-  	})
+
+  create: function(req, res) {
+  	Blog.create(req.params.all(), function blogCreated(err, blog) {
+  		if (err) {
+  			// do something
+  		}
+  		res.redirect('/blog');
+  	});
   },
 
-  projects: function(req, res) {
-    res.view({
-      title: 'Projects'
-    })
+  destroy: function(req, res) {
+  	res.redirect('/blog');
+  },
+
+  edit: function(req, res) {
+  	res.redirect('/blog');
+  },
+
+  index: function(req, res) {
+  	res.view({
+  		title: 'Blog'
+  	})
   }
 
   
