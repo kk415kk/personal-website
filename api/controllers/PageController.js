@@ -29,6 +29,12 @@ module.exports = {
   	res.view({
   		title: 'Contact'
   	})
+  },
+
+  projects: function(req, res) {
+    res.view({
+      title: 'Projects'
+    })
   }
 
   

@@ -1,21 +1,22 @@
 <div class="header">
 	<div class="row">
-		<div class="large-7 columns">
+		<div class="large-6 columns">
 			<div class="homepage">
 				<h1>Hi, I'm Kevin Kao.</h1>
-				<h4>Software Engineer. EECS major at UC Berkeley.</h4>
+				<h4>EECS major at UC Berkeley.<br>Software Engineer.</h4>
 				<h5>Thinker. Designer.</h5>
 			</div>
+			<br><br>
+			<a href="/projects" class="button">Projects</a>
+			<a href="/files/resume.pdf" class="button">Resume</a>
+			<a href="/blog" class="button">Blog</a>
 		</div>
-		<div class="large-5 columns about-wrapper">
-			<p id="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="large-12 columns">
-			<a href="/" class="button">Projects</a>
-			<a href="/" class="button">Resume</a>
-			<a href="/" class="button">Blog</a>
+		<div class="large-6 columns about-wrapper">
+			<p id="about">
+			I'm an EECS major at University of California, Berkeley. I love diving into thought-provoking and challenging projects - I've tackled several on my own and in teams. Some of my major interests include algorithms, machine learning, security, big data analysis, and general software development. 
+			<br><br>
+			My research involves working with large data dumps, organizing and parsing through the JSON/XML data to generate clean, queryable data and then provide a platform for which analytics and visualizations on these datasets can be shared.
+			</p>
 		</div>
 	</div>
 	<br>
@@ -37,8 +38,13 @@
 	<div class="row">
 		<div class="large-12 columns">
 			<h4>Projects</h4>
-			<font class="sm-text">Latest Update on Github: <b><%=github.date%></b> | Commit
-			<a href="<%=github.url%>"><%=github.sha%></a></font>
+			<% if (github == "error") { %>
+				<font class="sm-text">Unable to retrieve Github information at this time | See the <a href="https://github.com/kk415kk/personal-website/commit/master">latest commit</a> here.
+				</font>
+			<% } else { %>
+				<font class="sm-text">Latest Update on Github: <b><%=github.date%></b> | Commit
+				<a href="<%=github.url%>"><%=github.sha%></a></font>
+			<% } %>
 		</div>
 	</div>
 </div>
@@ -50,20 +56,20 @@
 			<i class="fi-cloud la-ico"></i>
 		</div>
 		<br>
-		<p>Experience with developing RESTful APIs and web services, as well as web applications built on Python Flask, Node.js, and Ruby on Rails.</p>
+		<p>Extensive experience with developing RESTful APIs and web services, as well as full-scale web applications. Designed and built several APIs, services, and web applications on <a href="http://flask.pocoo.org/">Python Flask</a>, Node.js, and Ruby on Rails.</p>
 	</div>
 	<div class="large-4 columns">
 		<div class="ico-header">
 			<i class="fi-pencil la-ico"></i>
 		</div>
 		<br>
-		<p>Written several large-scale projects both in team settings and individually, from MapReduce data processing algorithms to Pacman AI agents and relational databases.</p>
+		<p>Developed numerous small and large-scale projects, from MapReduce algorithms to image metadata extractors to Pacman AI agents to RDBMS. Even UNIX, Python, C, and Ruby scripting doesn't escape me.</p>
 	</div>
 	<div class="large-4 columns">
 		<div class="ico-header">
 			<i class="fi-graph-pie la-ico"></i>
 		</div>
 		<br>
-		<p>Piqued by the myriad insights to be gleaned from data through machine learning, data analysis, and data visualizations.</p>
+		<p>Piqued by the myriad insights to be gleaned from data through machine learning, data analysis, and data visualizations. A few projects here and there with <a href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">Hadoop MapReduce</a> and <a href="d3.js.org">D3.js</a>.</p>
 	</div>
 </div>

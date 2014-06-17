@@ -39,15 +39,20 @@ module.exports = {
 
     request.get(options, function(err, response, body) {
       if (err) {
-        github_info = "error while retrieving Github information";
+        github_info = "error";
       } else {
         body = JSON.parse(body)[0];
-        github_info = {
-          sha: body["sha"],
-          url: body["html_url"],
-          date: body["commit"]["committer"]["date"],
-          message: body["commit"]["message"]
-        };
+
+        if (body == undefined) {
+          github_info = "error"
+        } else {
+          github_info = {
+            sha: body["sha"],
+            url: body["html_url"],
+            date: body["commit"]["committer"]["date"],
+            message: body["commit"]["message"]
+          };
+        }
       }
 
       res.view({
