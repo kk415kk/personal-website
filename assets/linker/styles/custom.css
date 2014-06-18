@@ -1,5 +1,10 @@
+html {
+	height: 100%;
+}
+
 body {
 	font-family: 'Roboto', 'Open Sans', sans-serif;
+	height: 100%;
 }
 
 .top-bar-section {
@@ -25,12 +30,16 @@ body {
 }
 
 .header,
-.header-full {
+.header-auto {
 	background-color: #074e68;
 	padding-top: 45px;
 	width: 100%;
-	min-height: 400px;
 	color: #FFFFFF;
+	height: auto;
+}
+
+.header {
+	min-height: 400px;
 }
 
 .spacer {
@@ -55,11 +64,13 @@ footer {
 	color: #FFFFFF;
 	font-family: 'Ubuntu', 'Roboto', 'Open Sans', sans-serif;
 	clear: both;
+	bottom: 0;
 }
 
 .banner {
 	background-color: #085a78;
 	width: 100%;
+	height: auto;
 	min-height: 100px;
 	color: #FFFFFF;
 	padding: 20px 0;
@@ -98,7 +109,8 @@ footer {
 .banner h2,
 .banner h3,
 .banner h4,
-.header-full h1,
+.header-auto h2,
+.header h1,
 .homepage > h1,
 .homepage > h2,
 .homepage > h3,
@@ -106,6 +118,11 @@ footer {
 .homepage > h5 {
 	color: #FFFFFF;
 	font-family: 'Montserrat', 'Ubuntu', 'Open Sans', sans-serif;
+}
+
+.banner,
+.header-auto p {
+	font-family: 'Ubuntu';
 }
 
 .homepage > h1 {
@@ -119,6 +136,11 @@ footer {
 .sm-text {
 	font-size: 12px;
 	font-family: 'Ubuntu', 'Roboto', sans-serif;
+}
+
+#research ul {
+	margin: 0;
+	margin-left: 50px;
 }
 
 .transparent {
