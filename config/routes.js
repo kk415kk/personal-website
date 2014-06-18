@@ -47,6 +47,10 @@ module.exports.routes = {
   '/projects': {
     controller: 'PageController',
     action: 'projects'
+  },
+  '/research': {
+    controller: 'PageController',
+    action: 'research'
   }
 
   /*

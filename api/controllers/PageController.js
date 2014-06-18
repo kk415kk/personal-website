@@ -35,6 +35,12 @@ module.exports = {
     res.view({
       title: 'Projects'
     })
+  },
+
+  research: function(req, res) {
+    res.view({
+      research: 'Research'
+    })
   }
 
   
