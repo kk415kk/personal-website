@@ -1,0 +1,22 @@
+<div class="banner">
+  <div class="row">
+
+	<% if (messages['error']) { %>
+	  <div class="error">
+	  <% messages['error'].forEach(function(message) { %>
+	    <%= message %>
+	    <br>
+	  <% }); %>
+	  </div>
+	<% } %>
+
+	<form action="/user/validate" method="POST" class="form-signin">
+	  <h2 class="form-signin-heading">Login</h2>
+	  <label>Email/Username: </label><input type="text" class="form-control" placeholder="email or username" name="email">
+	  <label>Password: </label><input type="password" class="form-control" placeholder="password" name="password">
+	  <br>
+	  <input type="submit" class="button" value="Sign-in"/>
+	  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+	</form>
+  </div>
+</div>

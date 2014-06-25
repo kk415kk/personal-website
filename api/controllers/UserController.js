@@ -17,9 +17,6 @@
 
 module.exports = {
     
-  
-
-
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to AdminController)
@@ -28,25 +25,33 @@ module.exports = {
 
   admin_panel: function(req, res) {
     res.view({
-    	title: 'Admin Panel';
+    	title: 'Admin Panel'
     })
   },
   create: function(req, res) {
   	User.create(req.params.all(), function userCreated(err, user) {
-      if (err) return res.redirect('/register');
+      if (err) {
+        console.log(err);
+        return res.redirect('/user/register');
+      }
+
       var expiresAt = new Date(new Date().getTime() + 3600000);
       req.session.cookie.expires = expiresAt;
       req.session.authenticated = true;
       req.session.user = user;
-  	});
-  }
-  login: function(req, res) {
-  	res.view({
-  		title: 'Login';
+      return res.redirect('/user/manage');
   	});
   },
+  login: function(req, res) {
+    if (req.session.authenticated && req.session.user) {
+      return res.redirect('/user/manage');
+    } else {
+  	  res.view({
+  		  title: 'Login'
+  	  });
+    }
+  },
   logout: function(req, res) {
-  	req.session.cookie.expires = new Date().getTime();
   	req.session.authenticated = false;
   	req.session.user = null;
   	res.redirect('/');
@@ -59,20 +64,28 @@ module.exports = {
     }
   },
   register: function(req, res) {
-  	res.view({
-  		title: 'Register';
-  	});
+    if (req.session.authenticated) {
+      return res.redirect('/user/manage');
+    } else {
+  	  res.view({
+  		  title: 'Register'
+  	  });
+    }
   },
   validate: function(req, res) {
   	var bcrypt = require('bcrypt');
   	if (!(req.body.email && req.body.password)) {
-  		return res.redirect('/login');
+      req.session.messages = { error: ['Missing email or password.'] };
+  		return res.redirect('/user/login');
   	}
 
   	var isEmail = (req.body.email.indexOf('@') != -1)
     function setSession(user, correct_pass, check_pass) {
-      bcrypt.compare(correct_pass, check_pass, function(err, match) {
-        if (err || !match) return res.redirect('/login');
+      bcrypt.compare(check_pass, correct_pass, function(err, match) {
+        if (err || !match) {
+          req.session.messages = { error: ['Incorrect login information.'] };
+          return res.redirect('/user/login');
+        }
         var expiresAt = new Date(new Date().getTime() + 3600000);
         req.session.cookie.expires = expiresAt;
         req.session.authenticated = true;
@@ -83,13 +96,19 @@ module.exports = {
 
   	if (isEmail) {
       User.findOneByEmail(req.body.email).done(function(err, user) {
-      	if (err || !user) return res.redirect('/login');
-        setSession(user, user.password, req.body.password);
+      	if (err || !user) {
+          req.session.messages = { error: ['Incorrect login information.'] };
+          return res.redirect('/user/login');
+        }
+        return setSession(user, user.password, req.body.password);
       });
   	} else {
       User.findOneByUsername(req.body.email).done(function(err, user) {
-        if (err || !user) return res.redirect('/login');
-        setSession(user, user.password, req.body.password);
+        if (err || !user) {
+          req.session.messages = { error: ['Incorrect login information.'] };
+          return res.redirect('/user/login');
+        }
+        return setSession(user, user.password, req.body.password);
       });
   	}
   }
