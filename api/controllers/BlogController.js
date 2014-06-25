@@ -34,7 +34,6 @@ module.exports = {
   		res.redirect('/blog');
   	});
   },
-
   destroy: function(req, res) {
   	res.redirect('/blog');
   },
@@ -42,7 +41,6 @@ module.exports = {
   edit: function(req, res) {
   	res.redirect('/blog');
   },
-
   index: function(req, res) {
   	res.view({
   		title: 'Blog'

@@ -1,0 +1,14 @@
+<div class="banner">
+  <div class="row">
+	<form action="/user/create" method="POST" class="form-signin">
+	  <h2 class="form-signin-heading">Register</h2>
+	  <label>Username: </label><input type="text" class="form-control" placeholder="username" name="username">
+	  <label>Email: </label><input type="email" class="form-control" placeholder="email address" name="email">
+	  <label>Password: </label><input type="password" class="form-control" placeholder="password" name="password">
+	  <label>Confirm password: </label><input type="password" class="form-control" placeholder="password confirmation" name="confirmation">
+	  <br>
+	  <input type="submit" class="button" value="Create"/>
+	  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+	</form>
+  </div>
+</div>

@@ -57,7 +57,7 @@ module.exports = {
 
       res.view({
         title: 'Home',
-        github: github_info
+        github: github_info,
       });
     });
   }

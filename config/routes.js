@@ -51,6 +51,18 @@ module.exports.routes = {
   '/research': {
     controller: 'PageController',
     action: 'research'
+  },
+  '/login': {
+    controller: 'UserController',
+    action: 'login'
+  },
+  '/logout': {
+    controller: 'UserController',
+    action: 'logout'
+  },
+  '/register': {
+    controller: 'UserController',
+    action: 'register'
   }
 
   /*

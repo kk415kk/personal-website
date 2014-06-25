@@ -1,8 +1,26 @@
-<div class="header">
+<div class="header-auto">
   <div class="row">
-    <h1>Contact Form</h1>
-    <p>Currently under development - for now, contact me through my LinkedIn below in the footer.</p>
+    <h2 class="form-signin-heading">Contact</h2>
   </div>
+</div>
+<div class="banner">
+  <div class="row">
+	<form action="/user/validate" method="POST" class="form-signin" id="contact">
+	  <label>First Name: </label><input type="text" class="form-control" placeholder="first name" name="first_name">
+	  <label>Last Name: </label><input type="text" class="form-control" placeholder="first name" name="last_name">
+	  <label>Email: </label><input type="email" class="form-control" placeholder="email" name="email">
+	  <label>Type: </label>
+	  <input type="radio" name="type" value="recruiter"><font class="radio">Recruiter</font>
+	  <input type="radio" name="type" value="other"><font class="radio">Other</font><br>
+	  <label>Message: </label><textarea form="contact" class="form-control" placeholder="message" name="message"></textarea>
+	  <br>
+	  <input type="submit" class="button" value="Submit"/>
+	  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+	</form>
+	<p>Currently under development - for now, contact me through my LinkedIn below in the footer.</p>
+  </div>
+  <br>
+  <br>
 </div>
 <div class="row">
 	<div class="large-12 columns">
