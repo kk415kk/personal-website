@@ -20,9 +20,10 @@ module.exports.policies = {
   '*': 'flash',
 
   UserController: {
-  	admin_panel: 'isAdmin',
-  	manage: 'isAdmin',
-  	logout: 'isAuthenticated'
+  	admin_panel: ['flash', 'isAdmin'],
+  	manage: ['flash', 'isAdmin'],
+  	messages: ['flash', 'isAdmin'],
+  	logout: ['flash', 'isAuthenticated']
   }
 
   /*

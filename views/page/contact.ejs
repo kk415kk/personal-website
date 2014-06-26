@@ -5,14 +5,14 @@
 </div>
 <div class="banner">
   <div class="row">
-	<form action="/user/validate" method="POST" class="form-signin" id="contact">
+	<form action="/message/create" method="POST" class="form-signin" id="contact">
 	  <label>First Name: </label><input type="text" class="form-control" placeholder="first name" name="first_name">
 	  <label>Last Name: </label><input type="text" class="form-control" placeholder="first name" name="last_name">
 	  <label>Email: </label><input type="email" class="form-control" placeholder="email" name="email">
 	  <label>Type: </label>
 	  <input type="radio" name="type" value="recruiter"><font class="radio">Recruiter</font>
 	  <input type="radio" name="type" value="other"><font class="radio">Other</font><br>
-	  <label>Message: </label><textarea form="contact" class="form-control" placeholder="message" name="message"></textarea>
+	  <label>Message: </label><textarea class="form-control" placeholder="message" name="message"></textarea>
 	  <br>
 	  <input type="submit" class="button" value="Submit"/>
 	  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
