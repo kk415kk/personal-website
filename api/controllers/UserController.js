@@ -58,10 +58,22 @@ module.exports = {
   },
   manage: function(req, res) {
     if (req.session.user.admin) {
+      req.session.messages = { success: ["Logged in successfully"] }
       return res.redirect('/user/admin_panel');
     } else {
       return res.redirect('/');
     }
+  },
+  messages: function(req, res) {
+    Message.find().where({ deliverTo: req.session.user.id }).done(function messagesFound(err, msgs) {
+      if (err) {
+        req.session.messages = { error: "Error loading messages..." }
+      }
+      res.view({
+        title: 'Messages',
+        messages: msgs
+      });
+    });
   },
   register: function(req, res) {
     if (req.session.authenticated) {

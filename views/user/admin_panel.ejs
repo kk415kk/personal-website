@@ -1,0 +1,21 @@
+<div class="header-auto">
+	<div class="row">
+
+		<% if (messages && messages['success']) { %>
+		  <div class="success">
+		  <% messages['success'].forEach(function(message) { %>
+		    <%= message %>
+		    <br>
+		  <% }); %>
+		  </div>
+		<% } %>
+		<h2>Administration Panel</h2>
+	</div>
+</div>
+
+<div class="banner">
+	<div class="row">
+		<a href="/user/messages" class="tile"><i class="fi-mail large"></i>Messages</a>
+		<a href="/user/logout" class="tile">Logout</a>
+	</div>
+</div>
