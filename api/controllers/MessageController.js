@@ -32,14 +32,22 @@ module.exports = {
     	params['deliverTo'] = kevin['id'];
       
     	Message.create(params, function messageCreated(err, message) {
-        if (err) req.session.messages = { error: ["Unable to submit message - please try again later."] }
+        if (err) {
+          req.session.messages = { error: ["Unable to submit message - please try again later."] };
+        } else {
+          req.session.messages = { success: ["Successfully sent message - expect a response within 24 to 48 hours."] };
+        }
         return res.redirect('/contact');
     	});
     });
   },
   destroy: function(req, res) {
     Message.destroy(req.params.all().id, function(err) {
-      if (err) req.session.messages = { error: "Error deleting message" };
+      if (err) {
+        req.session.messages = { error: ["Error deleting message"] };
+      } else {
+        req.session.messages = { success: ["Successfully deleted message"] };
+      }
       return res.redirect('/user/messages');
     })
   }

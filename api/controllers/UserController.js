@@ -67,7 +67,7 @@ module.exports = {
   messages: function(req, res) {
     Message.find().where({ deliverTo: req.session.user.id }).done(function messagesFound(err, msgs) {
       if (err) {
-        req.session.messages = { error: "Error loading messages..." }
+        req.session.messages = { error: ["Error loading messages..."] }
       }
       res.view({
         title: 'Messages',
