@@ -34,6 +34,7 @@ module.exports = {
   projects: function(req, res) {
     Project.find().done(function projectsFound(err, projects) {
       if (err) projects = [];
+      projects = sails.config.util.sortProjects(projects);
 
       res.view({
         title: 'Projects',
