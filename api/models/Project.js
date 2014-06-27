@@ -18,7 +18,7 @@ module.exports = {
       required: true
     },
     technology: {
-      type: 'array',
+      type: 'string',
       required: false
     },
     description: {

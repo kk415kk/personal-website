@@ -7,6 +7,10 @@ body {
 	height: 100%;
 }
 
+h4 {
+	display: inline-block;
+}
+
 /* Sticky Footer & Footer */
 .spacer {
 	height: 20px;
@@ -18,6 +22,11 @@ body {
 	margin-bottom: -100px;
 	min-height: 100%;
 }
+
+.page-wrap:after {
+	clear: both;
+}
+
 
 footer {
 	width: 100%;
@@ -96,6 +105,7 @@ footer {
 	border: 1px solid #d6e9c6;
 }
 
+.tile-mini,
 .tile {
 	width: 120px;
 	height: 120px;
@@ -114,6 +124,14 @@ footer {
 	-webkit-transition:.5s;
 }
 
+.tile-mini {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 10px;
+}
+
+.tile-mini:hover,
 .tile:hover {
 	color: white;
 	background-color: #4fcf79;
@@ -124,12 +142,15 @@ footer {
 	background-color: #074e68;
 	color: #FFFFFF;
 	min-height: 100px;
+	position: relative;
 }
 
 /* Forms */
 textarea {
 	color: #000000;
 	height: 300px;
+	font-size: 14px;
+	background-color: #fafafa;
 }
 
 .radio {
@@ -142,6 +163,10 @@ textarea {
 td .button {
 	margin-top: 0;
 	margin-bottom: 0;
+}
+
+td input {
+	overflow: visible;
 }
 
 /* Banners & Headers */
@@ -271,6 +296,7 @@ td .button {
 	padding: 20px 0;
 }
 
+.sub,
 .skills-row .sub {
 	line-height: 14px;
 	font-size: 12px;

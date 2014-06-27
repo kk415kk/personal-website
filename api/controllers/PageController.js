@@ -33,14 +33,12 @@ module.exports = {
 
   projects: function(req, res) {
     Project.find().done(function projectsFound(err, projects) {
-      if (err) {
-        projects = [];
-      }
+      if (err) projects = [];
 
       res.view({
         title: 'Projects',
         projects: projects
-      });
+      })
     });
   },
 

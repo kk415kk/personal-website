@@ -5,10 +5,13 @@
 </div>
 <div class="banner">
 	<div class="row">
-		<% projects.forEach(function (err) { %>
-			<h5><% project.name %></h5>
-			<font class="sub">Technology Stack: <% project.technology %></font>
-			<p><% project.description %></p>
+		<% projects.forEach(function(project) { %>
+			<h4 class="section"><%= project.name %></h4>
+			<br>
+			<font class="sub"><%= project.start_date %> - <%= project.end_date %></font>
+			<br>
+			<font class="sub"><%= project.technology %></font>
+			<br><br>
 		<% }); %>
 	</div>
 </div>
