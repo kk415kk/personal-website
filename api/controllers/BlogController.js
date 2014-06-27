@@ -35,7 +35,14 @@ module.exports = {
   	});
   },
   destroy: function(req, res) {
-  	res.redirect('/blog');
+  	Blog.destroy(req.params.all().id, function(err) {
+      if (err) {
+        req.session.messages = { error: ["Error deleting blog entry"] };
+      } else {
+        req.session.messages = { success: ["Successfully deleted blog entry"] };
+      }
+      return res.redirect('/blog/manage');
+    });
   },
 
   edit: function(req, res) {
@@ -45,6 +52,11 @@ module.exports = {
   	res.view({
   		title: 'Blog'
   	})
+  },
+  manage: function(req, res) {
+    res.view({
+      title: 'Manage Blog'
+    })
   }
 
   
