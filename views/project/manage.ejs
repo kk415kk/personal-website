@@ -52,7 +52,7 @@
 							<td><%= project.start_date %></td>
 							<td><%= project.end_date %></td>
 							<td><%= project.technology %></td>
-							<td><%= project.description %></td>
+							<td><%- project.description %></td>
 							<td><a href="/project/edit/<%= project.id %>" class="button tiny"/>Edit</a></td>
 							<td><a href="/project/destroy/<%=project.id%>" class="button tiny alert"/>Delete</a></td>
 						</tr>

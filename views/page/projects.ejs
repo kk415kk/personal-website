@@ -10,7 +10,8 @@
 			<br>
 			<font class="sub"><%= project.start_date %> - <%= project.end_date %></font>
 			<br>
-			<font class="sub"><%= project.technology %></font>
+			<font class="sub">Technology Stack: <%= project.technology %></font>
+			<div class="description semi-transparent"><%- project.description %></div>
 			<br><br>
 		<% }); %>
 	</div>

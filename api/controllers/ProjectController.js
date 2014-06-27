@@ -28,7 +28,10 @@ module.exports = {
     })
   },
   create: function(req, res) {
-  	Project.create(req.params.all(), function projectCreated(err, project) {
+    params =  req.params.all();
+    params.description = params.description.replace(/\n/g, "<br>");
+
+  	Project.create(params, function projectCreated(err, project) {
   	  if (err) {
   	  	req.session.messages = { error: ["Error while creating project"] };
         return res.redirect('/project/add');
@@ -71,6 +74,7 @@ module.exports = {
   },
   save: function(req, res) {
     params = req.params.all();
+    params.description = params.description.replace(/\n/g, "<br>");
     function fieldSet(field, dict) {
       if (dict[field] == "") {
         return false;

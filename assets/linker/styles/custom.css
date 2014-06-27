@@ -105,7 +105,6 @@ footer {
 	border: 1px solid #d6e9c6;
 }
 
-.tile-mini,
 .tile {
 	width: 120px;
 	height: 120px;
@@ -124,14 +123,6 @@ footer {
 	-webkit-transition:.5s;
 }
 
-.tile-mini {
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-	font-size: 10px;
-}
-
-.tile-mini:hover,
 .tile:hover {
 	color: white;
 	background-color: #4fcf79;
@@ -245,6 +236,11 @@ td input {
 .sm-text {
 	font-size: 12px;
 	font-family: 'Ubuntu', 'Roboto', sans-serif;
+}
+
+.description {
+	font-size: 14px;
+	line-height: 18px;
 }
 
 
