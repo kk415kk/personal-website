@@ -27,10 +27,12 @@ module.exports.policies = {
   },
 
   ProjectController: {
+  	add: ['flash', 'isAdmin'],
   	create: ['flash', 'isAdmin'],
   	edit: ['flash', 'isAdmin'],
   	manage: ['flash', 'isAdmin'],
-  	destroy: ['flash', 'isAdmin']
+  	destroy: ['flash', 'isAdmin'],
+  	save: ['flash', 'isAdmin']
   }
 
   /*

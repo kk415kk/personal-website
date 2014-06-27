@@ -1,5 +1,69 @@
+<div class="header-auto">
+	<div class="row">
+		<div class="large-12 columns">
+			<h2>Manage Projects</h2>
+		</div>
+	</div>
+</div>
 <div class="banner">
 	<div class="row">
-		<h2>Manage Projects</h2>
+		<div class="large-12 columns">
+			<% if (messages && messages['success']) { %>
+			  <div class="success">
+			  <% messages['success'].forEach(function(message) { %>
+			    <%= message %>
+			    <br>
+			  <% }); %>
+			  </div>
+			  <br>
+			<% } %>
+			<% if (messages && messages['error']) { %>
+			  <div class="error">
+			  <% messages['error'].forEach(function(message) { %>
+			    <%= message %>
+			    <br>
+			  <% }); %>
+			  </div>
+			  <br>
+			<% } %>
+		</div>
+
+		<div class="large-10 columns">
+			<h4>Existing Projects</h4>
+		</div>
+		<div class="large-2 columns">
+			<a href="/project/add" class="button tiny"/><i class="fi-plus large"></i> New Project</a></td>
+		</div>
+		<div class="large-12 columns">
+			<table class='table'>
+				<thead>
+					<th width="10%">Name</th>
+					<th width="5%">Start</th>
+					<th width="5%">End</th>
+					<th width="20%">Technology</th>
+					<th width="60%">Description</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</thead>
+				<tbody>
+					<% projects.forEach(function(project) { %>
+						<tr>
+							<td><%= project.name %></td>
+							<td><%= project.start_date %></td>
+							<td><%= project.end_date %></td>
+							<td><%= project.technology %></td>
+							<td><%- project.description %></td>
+							<td><a href="/project/edit/<%= project.id %>" class="button tiny"/>Edit</a></td>
+							<td><a href="/project/destroy/<%=project.id%>" class="button tiny alert"/>Delete</a></td>
+						</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-12 columns">
 	</div>
 </div>

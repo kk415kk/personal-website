@@ -65,6 +65,10 @@
             <li class="divider"></li>
             <li><a href="/contact"><div class="nav-tab" id="contact">Contact</div></a></li>
             <li class="divider"></li>
+            <% if (req.session.user && req.session.user.admin) { %>
+              <li><a href="/user/admin_panel"><div class="nav-tab" id="admin panel">Admin Panel</div></a></li>
+              <li class="divider"></li>
+            <% } %>
             <li class="nav-filler"></li>
             <li class="nav-filler"></li>
           </ul>

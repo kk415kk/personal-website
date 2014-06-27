@@ -1,6 +1,19 @@
-<div class="banner">
+<div class="header-auto">
 	<div class="row">
 		<h2>Projects</h2>
+	</div>
+</div>
+<div class="banner">
+	<div class="row">
+		<% projects.forEach(function(project) { %>
+			<h4 class="section"><%= project.name %></h4>
+			<br>
+			<font class="sub"><%= project.start_date %> - <%= project.end_date %></font>
+			<br>
+			<font class="sub">Technology Stack: <%= project.technology %></font>
+			<div class="description semi-transparent"><%- project.description %></div>
+			<br><br>
+		<% }); %>
 	</div>
 </div>
 <div class="row">

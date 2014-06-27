@@ -16,52 +16,42 @@
  */
 
 module.exports = {
-    
-  
-
-
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to ProjectController)
    */
   //_config: {}
 
+  add: function(req, res) {
+    res.view({
+      title: 'Add Project'
+    })
+  },
   create: function(req, res) {
-  	Project.create(req.params.all(), function projectCreated(err, project) {
+    params =  req.params.all();
+    params.description = params.description.replace(/\n/g, "<br>");
+
+  	Project.create(params, function projectCreated(err, project) {
   	  if (err) {
   	  	req.session.messages = { error: ["Error while creating project"] };
+        return res.redirect('/project/add');
   	  } else {
   	  	req.session.messages = { success: ["Successfully created project"] };
+        return res.redirect('/project/manage');
   	  }
-  	  return res.redirect('/project/manage');
   	});
   },
   edit: function(req, res) {
-  	params = req.params.all();
-  	function fieldSet(field, dict) {
-  	  if (dict['field'] == "") {
-  	  	return false;
-  	  }
-  	  return true;
-  	};
-
-  	Project.find().where({ id: params['id'] }).done(function(err, project) {
-  	  if (err) {
-  	  	req.session.messages = { error: ["Error updating project"] };
-  	  } else {
-	  	if (fieldSet('name', params)) project.name = params['name'];
-	  	if (fieldSet('description', params)) project.description = params['description'];
-	  	if (fieldSet('start_date', params)) project.start_date = params['start_date'];
-	  	if (fieldSet('end_date', params)) project.end_date = params['end_date'];
-	  	if (fieldSet('technology', params)) project.technology = params['technology'];
-	  	project.save;
-
-	  	req.session.messages = { success: ["Successfully updated project"] };
-  	  }
-  	  return res.redirect('project/manage');
-
-  	});
- 
+    Project.findOne().where({ id: req.params.all().id }).done(function(err, project) {
+      if (err) {
+        req.session.messages = { error: ["Error editing project"] };
+        return res.redirect('/project/manage');
+      }
+      res.view({
+        title: 'Edit Project',
+        project: project
+      })
+    });
   },
   destroy: function(req, res) {
   	Project.destroy(req.params.all().id, function(err) {
@@ -74,10 +64,47 @@ module.exports = {
   	});
   },
   manage: function(req, res) {
-  	res.view({
-  	  title: 'Manage Projects'
-  	})
-  }
+    Project.find().done(function foundProjects(err, projects) {
+      if (err) projects = [];
+      res.view({
+        title: 'Manage Projects',
+        projects: projects
+      });
+    });
+  },
+  save: function(req, res) {
+    params = req.params.all();
+    params.description = params.description.replace(/\n/g, "<br>");
+    function fieldSet(field, dict) {
+      if (dict[field] == "") {
+        return false;
+      }
+      return true;
+    };
 
+    Project.findOne().where({id: params.id}).done(function(err, project) {
+      if (err) {
+        console.log(err)
+        req.session.messages = { error: ["Error updating project"] };
+        return res.redirect('project/manage');
+      } else {
+        if (fieldSet('name', params)) project.name = params.name;
+        if (fieldSet('description', params)) project.description = params.description;
+        if (fieldSet('start_date', params)) project.start_date = params.start_date;
+        if (fieldSet('end_date', params)) project.end_date = params.end_date;
+        if (fieldSet('technology', params)) project.technology = params.technology;
+
+        project.save(function(err) {
+          if (err) {
+            req.session.messages = { error: ["Error updating project"] };
+          } else {
+            req.session.messages = { success: ["Successfully updated project"] };
+          }
+          return res.redirect('project/manage');
+        });
+      }
+
+    });
+  }
   
 };
