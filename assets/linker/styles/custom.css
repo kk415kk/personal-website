@@ -119,6 +119,13 @@ footer {
 	background-color: #4fcf79;
 }
 
+.box {
+	padding: 20px;
+	background-color: #074e68;
+	color: #FFFFFF;
+	min-height: 100px;
+}
+
 /* Forms */
 textarea {
 	color: #000000;
@@ -367,4 +374,9 @@ a i.white-ico:hover {
 .ico-header {
 	display: inline-block;
 	padding-top: 15px;
+}
+
+.tile i {
+	padding-left: 0;
+	font-size: 20px;
 }

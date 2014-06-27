@@ -32,9 +32,16 @@ module.exports = {
   },
 
   projects: function(req, res) {
-    res.view({
-      title: 'Projects'
-    })
+    Project.find().done(function projectsFound(err, projects) {
+      if (err) {
+        projects = [];
+      }
+
+      res.view({
+        title: 'Projects',
+        projects: projects
+      });
+    });
   },
 
   research: function(req, res) {

@@ -1,6 +1,15 @@
-<div class="banner">
+<div class="header-auto">
 	<div class="row">
 		<h2>Projects</h2>
+	</div>
+</div>
+<div class="banner">
+	<div class="row">
+		<% projects.forEach(function (err) { %>
+			<h5><% project.name %></h5>
+			<font class="sub">Technology Stack: <% project.technology %></font>
+			<p><% project.description %></p>
+		<% }); %>
 	</div>
 </div>
 <div class="row">
