@@ -1,5 +1,21 @@
 <div class="banner">
 	<div class="row">
+		<% if (messages && messages['success']) { %>
+		  <div class="success">
+		  <% messages['success'].forEach(function(message) { %>
+		    <%= message %>
+		    <br>
+		  <% }); %>
+		  </div>
+		<% } %>
+		<% if (messages && messages['error']) { %>
+		  <div class="error">
+		  <% messages['error'].forEach(function(message) { %>
+		    <%= message %>
+		    <br>
+		  <% }); %>
+		  </div>
+		<% } %>
 		<h2>Messages</h2>
 		<table class='table'>
 			<thead>
@@ -9,6 +25,7 @@
 				<th width="10%">Email</th>
 				<th width="10%">Type</th>
 				<th width="50%">Message</th>
+				<th>Reply?</th>
 				<th>Delete?</th>
 				<th></th>
 			</thead>
@@ -16,12 +33,13 @@
 				<% messages.forEach(function(message) { %>
 					<tr>
 						<td></td>
-						<td><%= message.createdAt.substring(0,10) %></td>
+						<td><%= message.createdAt %></td>
 						<td><%= message.first_name %> <%= message.last_name %></td>
 						<td><%= message.email %></td>
 						<td><%= message.type %></td>
 						<td><%= message.message %></td>
-						<td><a href="message/destroy/<%=message.id%>" class="button tiny alert"/>Delete</a></td>
+						<td><a href="mailto:<%= message.email %>" class="button tiny"/>Reply</a></td>
+						<td><a href="/message/destroy/<%=message.id%>" class="button tiny alert"/>Delete</a></td>
 						<td></td>
 					</tr>
 				<% }); %>

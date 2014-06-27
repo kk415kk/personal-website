@@ -24,6 +24,13 @@ module.exports.policies = {
   	manage: ['flash', 'isAdmin'],
   	messages: ['flash', 'isAdmin'],
   	logout: ['flash', 'isAuthenticated']
+  },
+
+  ProjectController: {
+  	create: ['flash', 'isAdmin'],
+  	edit: ['flash', 'isAdmin'],
+  	manage: ['flash', 'isAdmin'],
+  	destroy: ['flash', 'isAdmin']
   }
 
   /*
