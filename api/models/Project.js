@@ -22,7 +22,7 @@ module.exports = {
       required: false
     },
     description: {
-      type: 'string',
+      type: 'text',
       required: false
     },
     start_date: {
