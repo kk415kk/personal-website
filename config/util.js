@@ -27,10 +27,10 @@ module.exports.util = {
       } else if (proj2.end_date == 'Present') {
         return 1;
       } else {
-        var month1 = proj1.end_date.split(" ")[0];
-        var month2 = proj2.end_date.split(" ")[0];
-        var year1 = proj1.end_date.split(" ")[1];
-        var year2 = proj2.end_date.split(" ")[1];
+        var month1 = proj1.end_date.split(" ")[0].toLowerCase();
+        var month2 = proj2.end_date.split(" ")[0].toLowerCase();
+        var year1 = proj1.end_date.split(" ")[1].toLowerCase();
+        var year2 = proj2.end_date.split(" ")[1].toLowerCase();
 
         if (year1 > year2) {
           return -1;
