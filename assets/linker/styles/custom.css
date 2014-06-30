@@ -75,6 +75,11 @@ footer {
 	width: 30px;
 }
 
+[data-magellan-expedition],
+[data-magellan-expedition-clone] {
+	background-color: #074e68;
+}
+
 /* Boxes & Containers */
 .error,
 .warning,
