@@ -95,6 +95,10 @@ footer {
 	background-color: #085a78;
 }
 
+.fixed-mag .active a {
+	background-color: transparent;
+}
+
 /* Boxes & Containers */
 .error,
 .warning,
