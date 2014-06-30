@@ -75,6 +75,10 @@ footer {
 	width: 30px;
 }
 
+.active-magellan {
+	border: 2px solid black;
+}
+
 /* Boxes & Containers */
 .error,
 .warning,
