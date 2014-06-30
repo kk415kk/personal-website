@@ -85,7 +85,7 @@
       <% if (title == 'Projects') {%>
         <div data-magellan-expedition="fixed">
           <dl class="sub-nav">
-            <h4>Current Projects:</h4>
+            <h4><dd data-magellan-arrival="current_projects">Current Projects:</dd></h4>
             <% projects.forEach(function(project) { %>
               <% if (project.end_date == 'Present') { %>
               <dd data-magellan-arrival="<%= project.id %>"><a href="#<%= project.id %>"><%= project.name %></a></dd>
