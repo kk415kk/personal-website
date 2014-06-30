@@ -6,7 +6,7 @@
 <div class="banner">
 	<div class="row">
 		<% projects.forEach(function(project) { %>
-			<h4 class="section"><%= project.name %></h4>
+			<h4 class="section" id="<%= project.id %>"><%= project.name %></h4>
 			<br>
 			<font class="sub"><%= project.start_date %> - <%= project.end_date %></font>
 			<br>

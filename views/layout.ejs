@@ -85,8 +85,9 @@
       <% if (title == 'Projects') {%>
         <div data-magellan-expedition="fixed">
           <dl class="sub-nav">
-            <dd data-magellan-arrival="category1"><a href="/">Category 1</a></dd>
-            <dd data-magellan-arrival="category2"><a href="/">Category 2</a></dd>
+            <% projects.forEach(function(project) { %>
+              <dd data-magellan-arrival="<%= project.id %>"><a href="#<%= project.id %>"><%= project.name %></a></dd>
+            <% }); %>
           </dl>
         </div>
       <% } %>
