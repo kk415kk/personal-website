@@ -80,6 +80,22 @@ footer {
 	background-color: #074e68;
 }
 
+.sub-nav dt a, .sub-nav dd a, .sub-nav li a {
+	color: #FFFFFF;
+}
+
+.sub-nav dt a:hover, 
+.sub-nav dd a:hover, 
+.sub-nav li a:hover {
+	color: #DDDDDD;
+}
+
+.sub-nav dt.active a, 
+.sub-nav dd.active a, 
+.sub-nav li.active a {
+	background-color: #085a78;
+}
+
 /* Boxes & Containers */
 .error,
 .warning,
