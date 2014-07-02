@@ -74,6 +74,7 @@ module.exports = {
   },
   save: function(req, res) {
     params = req.params.all();
+    params.description = params.description.replace("<br>", "");
     params.description = params.description.replace(/\n/g, "<br>");
     function fieldSet(field, dict) {
       if (dict[field] == "") {

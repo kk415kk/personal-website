@@ -8,6 +8,7 @@
     "grunt": "0.4.1",
     "sails-disk": "~0.9.0",
     "sails-mysql": "latest",
+		"sails-redis": "latest",
     "ejs": "0.8.4",
     "optimist": "0.3.4",
     "request": "latest",

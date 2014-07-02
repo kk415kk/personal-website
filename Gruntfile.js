@@ -60,6 +60,7 @@ module.exports = function (grunt) {
 
     // *->    put other dependencies here   <-*
     'linker/js/vendor/jquery.js',
+    'linker/js/foundation/foundation.js',
 
     // All of the rest of your app scripts imported here
     'linker/**/*.js'

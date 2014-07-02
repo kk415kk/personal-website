@@ -45,7 +45,7 @@ module.exports = {
 
   research: function(req, res) {
     res.view({
-      research: 'Research'
+      title: 'Research'
     })
   }
 
