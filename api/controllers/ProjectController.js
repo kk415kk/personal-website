@@ -47,7 +47,7 @@ module.exports = {
         req.session.messages = { error: ["Error editing project"] };
         return res.redirect('/project/manage');
       }
-      project.description = project.description.replace("<br>", "");
+      project.description = project.description.replace(/<br>/g, '');
       res.view({
         title: 'Edit Project',
         project: project
