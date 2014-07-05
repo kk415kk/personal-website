@@ -22,7 +22,7 @@ module.exports = {
    */
   //_config: {}
 
-  add: function(req, res) {
+  new: function(req, res) {
     res.view({
       title: 'Add Project'
     })
@@ -104,7 +104,6 @@ module.exports = {
           return res.redirect('project/manage');
         });
       }
-
     });
   }
   

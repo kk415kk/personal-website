@@ -1,0 +1,36 @@
+<div class="header-auto">
+  <div class="row">
+    <h2>Edit Blog Entry</h2>
+  </div>
+</div>
+<div class="banner">
+  <div class="row">
+    <% if (messages && messages['error']) { %>
+      <div class="error">
+      <% messages['error'].forEach(function(message) { %>
+        <%= message %>
+        <br>
+      <% }); %>
+      </div>
+      <br>
+    <% } %>
+    <div class="box">
+      <form action="/blog/save" method="POST" class="form-signin">
+        <h2 class="form-signin-heading">Edit Blog Entry</h2>
+        <label>Title: </label><input type="text" class="form-control" placeholder="title" name="title" values="<%= blog.title %>">
+        <label>Category: </label><input type="text" class="form-control" placeholder="uncategorized" name="category" values="<%= blog.category %>">
+        <label>Body: </label><textarea class="form-control" placeholder="" name="body"><%- blog.body %></textarea>
+        <br>
+        <label>Tags: </label><input type="text" class="form-control" placeholder="news, research, projects" name="tags" values="<%= blog.tags %>">
+        <br>
+        <input type="submit" class="button" value="Edit"/>
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+  </div>
+</div>

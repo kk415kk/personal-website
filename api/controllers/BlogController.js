@@ -24,7 +24,10 @@ module.exports = {
   //_config: {}
 
   create: function(req, res) {
-  	Blog.create(req.params.all(), function blogCreated(err, blog) {
+    params =  req.params.all();
+    params.body = params.body.replace(/\n/g, "<br>");
+
+  	Blog.create(params, function blogCreated(err, blog) {
   		if (err) {
   			// do something
   		}
@@ -43,8 +46,16 @@ module.exports = {
     });
   },
   edit: function(req, res) {
-  	res.view({
-      title: 'Edit Entry'
+    Blog.findOne().where({ id: req.params.all().id }).done(function(err, blog) {
+      if (err) {
+        req.session.messages = { error: ["Error editing blog entry"] };
+        return res.redirect('/blog/manage');
+      }
+      blog.body = blog.body.replace(/<br>/g, '');
+      res.view({
+        title: 'Edit Blog Entry',
+        blog: blog
+      })
     });
   },
   manage: function(req, res) {
@@ -62,5 +73,37 @@ module.exports = {
     res.view({
       title: 'New Entry'
     });
+  },
+  save: function(req, res) {
+    params = req.params.all();
+    params.body = params.body.replace(/\n/g, "<br>");
+    function fieldSet(field, dict) {
+      if (dict[field] == "") {
+        return false;
+      }
+      return true;
+    };
+
+    Blog.findOne().where({id: params.id}).done(function(err, blog) {
+      if (err) {
+        console.log(err)
+        req.session.messages = { error: ["Error updating blog"] };
+        return res.redirect('blog/manage');
+      } else {
+        if (fieldSet('title', params)) blog.title = params.title;
+        if (fieldSet('body', params)) blog.body = params.body;
+        if (fieldSet('category', params)) blog.category = params.category;
+        if (fieldSet('tags', params)) blog.tags = params.tags;
+
+        blog.save(function(err) {
+          if (err) {
+            req.session.messages = { error: ["Error updating blog"] };
+          } else {
+            req.session.messages = { success: ["Successfully updated blog entry"] };
+          }
+          return res.redirect('blog/manage');
+        });
+      }
+    });    
   }
 };
