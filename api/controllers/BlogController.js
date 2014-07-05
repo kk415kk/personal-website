@@ -17,9 +17,6 @@
 
 module.exports = {
     
-  
-
-
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to BlogController)
@@ -31,7 +28,8 @@ module.exports = {
   		if (err) {
   			// do something
   		}
-  		res.redirect('/blog');
+      console.log(blog);
+  		return res.redirect('/blog');
   	});
   },
   destroy: function(req, res) {
@@ -44,20 +42,25 @@ module.exports = {
       return res.redirect('/blog/manage');
     });
   },
-
   edit: function(req, res) {
-  	res.redirect('/blog');
-  },
-  index: function(req, res) {
   	res.view({
-  		title: 'Blog'
-  	})
+      title: 'Edit Entry'
+    });
   },
   manage: function(req, res) {
+    Blog.find().done(function(err, blogs) {
+      if (err) {
+        // do something
+      }
+      res.view({
+        title: 'Manage Blog',
+        blogs: blogs
+      });
+    });
+  },
+  new: function(req, res) {
     res.view({
-      title: 'Manage Blog'
-    })
+      title: 'New Entry'
+    });
   }
-
-  
 };

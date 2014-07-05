@@ -16,9 +16,6 @@
  */
 
 module.exports = {
-    
-  
-
 
   /**
    * Overrides for the settings in `config/controllers.js`
@@ -50,6 +47,17 @@ module.exports = {
       }
       return res.redirect('/user/messages');
     })
+  },
+  manage: function(req, res) {
+    Message.find().where({ deliverTo: req.session.user.id }).done(function messagesFound(err, msgs) {
+      if (err) {
+        req.session.messages = { error: ["Error loading messages..."] }
+      }
+      res.view({
+        title: 'Messages',
+        messages: msgs
+      });
+    });
   }
 
   

@@ -64,17 +64,6 @@ module.exports = {
       return res.redirect('/');
     }
   },
-  messages: function(req, res) {
-    Message.find().where({ deliverTo: req.session.user.id }).done(function messagesFound(err, msgs) {
-      if (err) {
-        req.session.messages = { error: ["Error loading messages..."] }
-      }
-      res.view({
-        title: 'Messages',
-        messages: msgs
-      });
-    });
-  },
   register: function(req, res) {
     if (req.session.authenticated) {
       return res.redirect('/user/manage');

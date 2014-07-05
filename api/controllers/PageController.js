@@ -47,6 +47,18 @@ module.exports = {
     res.view({
       title: 'Research'
     })
+  },
+
+  blogs: function(req, res) {
+    Blog.find().done(function(err, blogs) {
+      if (err) {
+        // do something
+      }
+      res.view({
+        title: 'Blog',
+        blogs: blogs
+      });
+    });    
   }
 
   

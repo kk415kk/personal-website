@@ -1,0 +1,67 @@
+<div class="header-auto">
+  <div class="row">
+    <div class="large-12 columns">
+      <h2>Manage Blog</h2>
+    </div>
+  </div>
+</div>
+<div class="banner">
+  <div class="row">
+    <div class="large-12 columns">
+      <% if (messages && messages['success']) { %>
+        <div class="success">
+        <% messages['success'].forEach(function(message) { %>
+          <%= message %>
+          <br>
+        <% }); %>
+        </div>
+        <br>
+      <% } %>
+      <% if (messages && messages['error']) { %>
+        <div class="error">
+        <% messages['error'].forEach(function(message) { %>
+          <%= message %>
+          <br>
+        <% }); %>
+        </div>
+        <br>
+      <% } %>
+    </div>
+
+    <div class="large-9 columns">
+      <h4>Existing Blogs</h4>
+    </div>
+    <div class="large-3 columns">
+      <a href="/blog/new" class="button tiny right"/><i class="fi-plus large"></i>New Blog Entry</a></td>
+    </div>
+    <div class="large-12 columns">
+      <table class='table'>
+        <thead>
+          <th width="40%">Title</th>
+          <th width="20%">Date</th>
+          <th width="10%">Category</th>
+          <th width="30%">Tags</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </thead>
+        <tbody>
+          <% blogs.forEach(function(blog) { %>
+            <tr>
+              <td><%= blog.title %></td>
+              <td><%= blog.createdAt %></td>
+              <td><%= blog.category %></td>
+              <td><%= blog.tags %></td>
+              <td><a href="/blog/edit/<%= blog.id %>" class="button tiny"/>Edit</a></td>
+              <td><a href="/blog/destroy/<%=blog.id%>" class="button tiny alert"/>Delete</a></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+  </div>
+</div>

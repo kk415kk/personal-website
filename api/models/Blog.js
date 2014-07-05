@@ -13,14 +13,44 @@ module.exports = {
   	/* e.g.
   	nickname: 'string'
   	*/
-  	title: 'string',
-  	body: 'string',
-  	category: 'string',
-  	tags: 'string',
-  	date: 'string',
-  	author: 'string',
-  	type: 'string' 		// Draft
-    
-  }
+  	title: {
+      type: 'string',
+      defaultsTo: ''
+    },
+  	body: {
+      type: 'text',
+      defaultsTo: ''
+    },
+  	category: {
+      type: 'string',
+      defaultsTo: 'uncategorized'
+    },
+  	tags: {
+      type: 'array',
+      defaultsTo: ['none']
+    },
+  	author: {
+      type: 'string',
+      defaultsTo: 'Kevin'
+    },
+  	type: {
+      type: 'string',
+      defaultsTo: 'Published'
+    }
+  },
 
+  beforeCreate: function(values, next) {
+    if (values.tags != '') {
+      var tagList = values.tags.split(",");
+      values['tags'] = tagList;
+    } else {
+      values['tags'] = ['none']
+    }
+
+    if (values.category == '') {
+      values['category'] = 'uncategorized'
+    }
+
+    return next();
+  }
 };

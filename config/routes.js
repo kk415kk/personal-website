@@ -41,8 +41,8 @@ module.exports.routes = {
     action: 'contact'
   },
   '/blog': {
-    controller: 'BlogController',
-    action: 'index'
+    controller: 'PageController',
+    action: 'blogs'
   },
   '/projects': {
     controller: 'PageController',
