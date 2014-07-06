@@ -30,9 +30,10 @@ module.exports = {
   	Blog.create(params, function blogCreated(err, blog) {
   		if (err) {
   			// do something
+        console.log(err);
+        req.session.messages = { error: [err] };
   		}
-      console.log(blog);
-  		return res.redirect('/blog');
+  		return res.redirect('/blog/manage');
   	});
   },
   destroy: function(req, res) {
@@ -90,16 +91,6 @@ module.exports = {
         req.session.messages = { error: ["Error updating blog"] };
         return res.redirect('blog/manage');
       } else {
-        if (params.tags != '') {
-          var tagList = params.tags.split(",");
-          params.tags = tagList;
-        } else {
-          params.tags = ['none']
-        }
-        if (params.category == '') {
-          params.category = 'uncategorized'
-        }
-        
         if (fieldSet('title', params)) blog.title = params.title;
         if (fieldSet('body', params)) blog.body = params.body;
         if (fieldSet('category', params)) blog.category = params.category;

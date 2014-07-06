@@ -37,20 +37,19 @@ module.exports = {
       type: 'string',
       defaultsTo: 'Published'
     }
-  },
 
-  beforeCreate: function(values, next) {
+  },
+  beforeValidation: function(values, next) {
     if (values.tags != '') {
       var tagList = values.tags.split(",");
-      values['tags'] = tagList;
+      values.tags = tagList;
     } else {
-      values['tags'] = ['none']
+      values.tags = ['none']
     }
 
     if (values.category == '') {
-      values['category'] = 'uncategorized'
+      values.category = 'uncategorized'
     }
-
     return next();
   }
 };
