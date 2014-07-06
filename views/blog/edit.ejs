@@ -15,15 +15,15 @@
       <br>
     <% } %>
     <div class="box">
-      <form action="/blog/save" method="POST" class="form-signin">
+      <form action="/blog/save/<%= blog.id %>" method="POST" class="form-signin">
         <h2 class="form-signin-heading">Edit Blog Entry</h2>
-        <label>Title: </label><input type="text" class="form-control" placeholder="title" name="title" values="<%= blog.title %>">
-        <label>Category: </label><input type="text" class="form-control" placeholder="uncategorized" name="category" values="<%= blog.category %>">
+        <label>Title: </label><input type="text" class="form-control" placeholder="title" name="title" value="<%= blog.title %>">
+        <label>Category: </label><input type="text" class="form-control" placeholder="uncategorized" name="category" value="<%= blog.category %>">
         <label>Body: </label><textarea class="form-control" placeholder="" name="body"><%- blog.body %></textarea>
         <br>
-        <label>Tags: </label><input type="text" class="form-control" placeholder="news, research, projects" name="tags" values="<%= blog.tags %>">
+        <label>Tags: </label><input type="text" class="form-control" placeholder="news, research, projects" name="tags" value="<%= blog.tags %>">
         <br>
-        <input type="submit" class="button" value="Edit"/>
+        <input type="submit" class="button" value="Save"/>
         <input type="hidden" name="_csrf" value="<%= _csrf %>" />
       </form>
     </div>

@@ -86,10 +86,20 @@ module.exports = {
 
     Blog.findOne().where({id: params.id}).done(function(err, blog) {
       if (err) {
-        console.log(err)
+        console.log(err);
         req.session.messages = { error: ["Error updating blog"] };
         return res.redirect('blog/manage');
       } else {
+        if (params.tags != '') {
+          var tagList = params.tags.split(",");
+          params.tags = tagList;
+        } else {
+          params.tags = ['none']
+        }
+        if (params.category == '') {
+          params.category = 'uncategorized'
+        }
+        
         if (fieldSet('title', params)) blog.title = params.title;
         if (fieldSet('body', params)) blog.body = params.body;
         if (fieldSet('category', params)) blog.category = params.category;
@@ -97,6 +107,7 @@ module.exports = {
 
         blog.save(function(err) {
           if (err) {
+            console.log(err);
             req.session.messages = { error: ["Error updating blog"] };
           } else {
             req.session.messages = { success: ["Successfully updated blog entry"] };
