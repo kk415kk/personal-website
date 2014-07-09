@@ -45,7 +45,7 @@ module.exports = {
       } else {
         req.session.messages = { success: ["Successfully deleted message"] };
       }
-      return res.redirect('/user/messages');
+      return res.redirect('/messages/manage');
     })
   },
   manage: function(req, res) {
