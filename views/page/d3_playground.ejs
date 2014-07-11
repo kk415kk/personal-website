@@ -1,0 +1,58 @@
+<!-- External Scripts -->
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<!-- External Scripts END -->
+
+<div class="header-auto">
+  <div class="row">
+    <h2>D3.js Playground</h2>
+  </div>
+</div>
+<div class="banner">
+  <div class="row">
+    <div class="large-6 columns">
+      <h4>Bar Charts</h4>
+      <style>
+      .bar-chart div {
+        font: 10px sans-serif;
+        background-color: steelblue;
+        text-align: right;
+        padding: 3px;
+        margin: 1px;
+        color: white;
+      }
+      </style>
+      <div class="bar-chart">
+      </div>
+
+      <script>
+        d3.csv("/data/barChartData1.csv", function(rows) {
+          var data = []
+          for (i = 0; i < rows.length; i++) {
+            data.push(+rows[i].data_width);
+          }
+
+          var x = d3.scale.linear()
+            .domain([0, d3.max(data)])
+            .range([0, 420]);
+
+          d3.select(".bar-chart")
+            .selectAll("div")
+              .data(data)
+            .enter().append("div")
+              .style("width", function(d) { return x(d) + "px"; })
+              .text(function(d) { return d; });
+        });
+      </script>
+    </div>
+
+    <div class="large-6 columns">
+      <h4>Line Graphs</h4>
+    </div>
+  </div>
+
+
+</div>
+<div class="row">
+  <div class="large-12 columns">
+  </div>
+</div>

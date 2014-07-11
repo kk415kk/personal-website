@@ -12,7 +12,9 @@
     "ejs": "0.8.4",
     "optimist": "0.3.4",
     "request": "latest",
-    "bcrypt": "latest"
+    "bcrypt": "latest",
+    "d3": "latest",
+    "xmlhttprequest": "latest"
   },
   "scripts": {
     "start": "node app.js",

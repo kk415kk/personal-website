@@ -59,7 +59,24 @@ module.exports = {
         blogs: blogs
       });
     });    
-  }
+  },
 
-  
+  west_nile_analytics: function(req, res) {
+    res.view({
+      title: 'West Nile Analytics'
+    });
+  },
+
+  google_maps_ml: function(req, res) {
+    res.view({
+      title: 'Google Maps Machine Learning'
+    })
+  },
+
+  d3_playground: function(req, res) {
+    var d3 = require('d3');
+    res.view({
+      title: 'D3.js Playground'
+    })
+  }
 };
