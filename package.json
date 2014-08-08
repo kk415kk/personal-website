@@ -13,8 +13,7 @@
     "optimist": "0.3.4",
     "request": "latest",
     "bcrypt": "latest",
-    "d3": "latest",
-    "xmlhttprequest": "latest"
+    "d3": "latest"
   },
   "scripts": {
     "start": "node app.js",
